@@ -46,11 +46,25 @@ public class WeightedGraph<T extends Comparable<T>> extends Graph<T> {
 
 	}
 
+	/**
+	 * Adds an edge to the node.
+	 * 
+	 * @param node0 the first node
+	 * @param node1 the second node
+	 * @param w     the weight
+	 */
 	public void addEdge(T node0, T node1, Double w) {
 
 		setWeight(node0, node1, w);
 	}
 
+	/**
+	 * Gets and returns the weight between two nodes.
+	 * 
+	 * @param node0 the first node
+	 * @param node1 the second node
+	 * @return the weight of the two nodes
+	 */
 	public Double getWeight(T node0, T node1) {
 
 		if (!weights.containsKey(node0) || !weights.get(node0).containsKey(node1))
@@ -59,6 +73,12 @@ public class WeightedGraph<T extends Comparable<T>> extends Graph<T> {
 
 	}
 
+	/**
+	 * Implements the dijkstra search function.
+	 * 
+	 * @param start the start
+	 * @return a map containing the tree data
+	 */
 	public Map<T, T> dijkstra(T start) {
 		Map<T, Double> dist = new TreeMap<T, Double>();
 		Map<T, T> prev = new TreeMap<T, T>();
